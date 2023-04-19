@@ -2,7 +2,7 @@
 
 /**
  * execute_command -  execute the file.
- * @argv: a char double pointer.
+ * @cmd: a char double pointer.
  *
  * Return: no return.
  */
@@ -10,7 +10,7 @@ void execute_command(char **cmd)
 {
 	char *exe = NULL;
 
-	if(cmd)
+	if (cmd)
 	{
 		exe = cmd[0];
 		if (execve(exe, cmd, NULL) == -1)
