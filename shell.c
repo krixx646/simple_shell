@@ -16,13 +16,15 @@ int main(int argc, char **argv)
 	const char *dim = " \n";
 	int count, tok_count = 0;
 	char *tok;
-	(void)argc;
 
+	if (argc > 1)
+	{
+		prompt = argv[1];
+	}
 
 	while (1)
 	{
 		write(STDOUT_FILENO, prompt, strlen(prompt));
-
 		str = getline(&markptr, &size, stdin);
 		if (str == -1)
 		{
@@ -37,7 +39,6 @@ int main(int argc, char **argv)
 			return (-1);
 		}
 		strcpy(markptr_dup, markptr);
-
 		tok = strtok(markptr, dim);
 
 		while (tok != NULL)
@@ -47,7 +48,6 @@ int main(int argc, char **argv)
 		}
 
 		argv = malloc(sizeof(char *) * (tok_count + 1));
-
 		tok = strtok(markptr_dup, dim);
 
 		for (count = 0; tok != NULL; count++)
@@ -58,11 +58,15 @@ int main(int argc, char **argv)
 		}
 		argv[count] = NULL;
 
-		execute_command(argv);
+		execute_command(argv, argc);
+
+		for (count = 0; count < tok_count; count++)
+		{
+			free(argv[count]);
+		}
+		free(argv);
 	}
 	free(markptr);
 	free(markptr_dup);
-
-
 	return (0);
- }
+}

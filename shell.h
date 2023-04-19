@@ -6,6 +6,6 @@
 #include <unistd.h>
 #include <string.h>
 
-void execute_command(char **argv);
+void execute_command(char **argv, int var);
 
 #endif

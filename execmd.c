@@ -6,11 +6,11 @@
  *
  * Return: no return.
  */
-void execute_command(char **cmd)
+void execute_command(char **cmd, int var)
 {
 	char *exe = NULL;
 
-	if (cmd)
+	if (cmd && var > 0)
 	{
 		exe = cmd[0];
 		if (execve(exe, cmd, NULL) == -1)
