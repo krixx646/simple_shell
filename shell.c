@@ -7,7 +7,7 @@
  *
  * Return: int.
  */
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char *prompt = "simple_shell$ ";
 	char *markptr = NULL, *markptr_dup = NULL;
