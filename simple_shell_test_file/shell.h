@@ -29,4 +29,9 @@ char *_strdup(char *string);
 int _strcmp(char *str1, char *str2);
 int env_builtin(char **env);
 
+
+/* _print functions */
+int _putchar(char c);
+int _putstr(char *str);
+
 #endif
