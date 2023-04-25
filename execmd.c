@@ -14,7 +14,7 @@ char *read_input()
 	read_len = getline(&input, &len, stdin);
 	if (read_len == -1)
 	{
-		write(STDOUT_FILENO, "Terminating shell...\n", 20);
+		write(STDOUT_FILENO, "Terminating shell...\n", 21);
 		exit(-1);
 	}
 	input[read_len - 1] = '\0';

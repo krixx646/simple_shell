@@ -4,9 +4,13 @@
 
 int main(int argc, char **argv)
 {
-	char *prompt = "simple_shell$ ";
+	char *prompt;
 	char *input, *command;
 	(void)argc;
+
+	setenv("TERM", "xterm-256color", 1);
+
+	prompt = "simple_shell$ ";
 	
 	while (1)
 	{
