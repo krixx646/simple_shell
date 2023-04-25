@@ -28,6 +28,12 @@ int main(int argc, char **argv)
 			free(input);
 			exit(EXIT_SUCCESS);
 		}
+		if (_strcmp(command, "env") == 0)
+		{
+			env_builtin(environ);
+			continue;
+		}
+
 		_execute_command(command, argv);
 		free(input);
 	}

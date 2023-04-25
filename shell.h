@@ -29,6 +29,7 @@ int _strlen(char *str);
 char *_strchr(char *str, char ch);
 char *_strdup(char *string);
 int _strcmp(char *str1, char *str2);
+int env_builtin(char **env);
 
 
 
