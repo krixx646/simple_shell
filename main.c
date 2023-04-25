@@ -10,7 +10,8 @@ int main(int argc, char **argv)
 {
 	char *prompt;
 	char *input, *command;
-	(void)argc;
+	int status = EXIT_SUCCESS;
+
 	setenv("TERM", "xterm-256color", 1);
 	prompt = "simple_shell$ ";
 	while (1)
@@ -25,8 +26,12 @@ int main(int argc, char **argv)
 		command = argv[0];
 		if (_strcmp(command, "exit") == 0)
 		{
+			if (argc > 1)
+			{
+				status = atoi(argv[1]);
+			}
 			free(input);
-			exit(EXIT_SUCCESS);
+			exit(status);
 		}
 		if (_strcmp(command, "env") == 0)
 		{
