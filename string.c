@@ -37,7 +37,7 @@ char *_strdup(char *string)
 
 	lenght = _strlen(string);
 
-	ops = malloc(sizeof(char) *(lenght + 1));
+	ops = malloc(sizeof(char) * (lenght + 1));
 	if (!ops)
 		return (NULL);
 	for (v = 0; *string != '\0'; string++, v++)
@@ -46,7 +46,7 @@ char *_strdup(char *string)
 	}
 	ops[v++] = '\0';
 
-	return(ops);
+	return (ops);
 }
 
 /**
@@ -86,7 +86,7 @@ char *_strchr(char *str, char ch)
 	}
 	if (!ch)
 	{
-		return(str);
+		return (str);
 	}
 	return (NULL);
 }

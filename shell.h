@@ -17,11 +17,11 @@ extern char **environ;
 #define MAX_ARGV 10
 
 /* function header */
-void print_prompt(char *prompt);
-char *read_input();
-int parse_input(char *input, char **argv);
-char *find_command(char *command);
-void execute_command(char *command, char **argv);
+void _print_prompt(char *prompt);
+char *_read_input();
+int _parse_input(char *input, char **argv);
+char *_find_command(char *command);
+void _execute_command(char *command, char **argv);
 char *getenv(const char *name);
 size_t strlen(const char *str);
 int _strlen(char *str);
