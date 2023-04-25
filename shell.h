@@ -18,6 +18,7 @@ extern char **environ;
 
 /* function header */
 void _print_prompt(char *prompt);
+void exit(int status);
 char *_read_input();
 int _parse_input(char *input, char **argv);
 char *_find_command(char *command);

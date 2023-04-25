@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * main - start of function.
  * @argc: numbers of command.
@@ -12,23 +11,23 @@ int main(int argc, char **argv)
 	char *prompt;
 	char *input, *command;
 	(void)argc;
-
 	setenv("TERM", "xterm-256color", 1);
-
 	prompt = "simple_shell$ ";
-
 	while (1)
 	{
 		_print_prompt(prompt);
 		input = _read_input();
-
 		if (_strlen(input) == 0)
 		{
 			continue;
 		}
-
 		argc = _parse_input(input, argv);
 		command = argv[0];
+		if (_strcmp(command, "exit") == 0)
+		{
+			free(input);
+			exit(EXIT_SUCCESS);
+		}
 		_execute_command(command, argv);
 		free(input);
 	}
