@@ -2,7 +2,7 @@
 /**
  * _print_prompt - prints prompt.
  * @prompt: shell prompt.
- *
+ *i
  * Return: no return.
  */
 void _print_prompt(char *prompt)
@@ -21,7 +21,7 @@ char *_read_input()
 	size_t lenght = 0;
 	ssize_t rd_lenght;
 
-	rd_lenght = getline(&input, &lenght, stdin);
+	rd_lenght = _getline(&input, &lenght, fileno(stdin));
 	if (rd_lenght == -1)
 	{
 		write(STDOUT_FILENO, "Terminating shell...\n", 21);

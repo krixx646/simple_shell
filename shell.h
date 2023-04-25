@@ -12,7 +12,10 @@
 
 extern char **environ;
 
-/* Macros unit Variables*/
+/* BUFFER_SIZE */
+#define BUFFER_SIZE 1024
+
+/* MAX_ARGV */
 
 #define MAX_ARGV 10
 
@@ -30,8 +33,8 @@ char *_strchr(char *str, char ch);
 char *_strdup(char *string);
 int _strcmp(char *str1, char *str2);
 int env_builtin(char **env);
-int _putchar(char c);
+int _putchar(char c);
 int _putstr(char *str);
-
+size_t _getline(char **dbl, size_t *boff, int size);
 
 #endif
