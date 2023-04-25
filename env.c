@@ -6,14 +6,14 @@
  */
 void _print_env(char **env)
 {
-        int i = 0;
+	int i = 0;
 
-        while (env[i] != NULL)
-        {
-                _putstr(env[i]);
-                _putchar('\n');
-                i++;
-        }
+	while (env[i] != NULL)
+	{
+		_putstr(env[i]);
+		_putchar('\n');
+		i++;
+	}
 }
 
 /**
@@ -24,7 +24,6 @@ void _print_env(char **env)
  */
 int env_builtin(char **env)
 {
-        _print_env(env);
-        return (0);
+	_print_env(env);
+	return (0);
 }
-
