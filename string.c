@@ -1,44 +1,92 @@
 #include "shell.h"
 
 /**
- * strlen - Calculates the length of a string
- * @str: The string to be measured
+ * _strcmp - compares two strings.
+ * @str1: first string.
+ * @str2: second string.
  *
- * Return: The length of the string
+ * Return: result of the two string.
  */
-
-size_t strlen(const char *str)
+int _strcmp(char *str1, char *str2)
 {
-	int i;
+	int h = 0, end_result;
 
-	for (i = 0; str[i] != '\0'; i++)
-		;
+	while (*(str1 + h) == *(str2 + h) && *(str1 + h) != '\0')
+		h++;
 
-	return (i);
+	end_result = (*(str1 + h) - *(str2 + h));
+
+	return (end_result);
 }
 
 /**
- * strchr - Locates a character in a string
- * @str: The string to be searched
- * @c: The character to be located
+ * _strdup - duplicate a string.
+ * @string: string to be duplicated.
  *
- * Return: A pointer to the first occurrence of the character c in the string
- * str, or NULL if the character is not found
+ * Return: a pointer.
  */
-
-char *strchr(const char *str, int c)
+char *_strdup(char *string)
 {
-	char *ptr = NULL;
-	int i;
+	char *ops;
+	int v, lenght;
 
-	for (i = 0; str[i] != '\0'; i++)
+	if (string == NULL)
 	{
-		if (str[i] == c)
-		{
-			ptr = (char *)&str[i];
-			break;
-		}
+		return (NULL);
 	}
 
-	return (ptr);
+	lenght = _strlen(string);
+
+	ops = malloc(sizeof(char) *(lenght + 1));
+	if (!ops)
+		return (NULL);
+	for (v = 0; *string != '\0'; string++, v++)
+	{
+		ops[v] = string[0];
+	}
+	ops[v++] = '\0';
+
+	return(ops);
+}
+
+/**
+ * _strlen - returns lenght of string.
+ * @str: string.
+ *
+ * Return: int.
+ */
+int _strlen(char *str)
+{
+	int num = 0;
+
+	while (*str != '\0')
+	{
+		num++;
+		str++;
+	}
+	return (num);
+}
+
+/**
+ * _strchr - search for character in a string.
+ * @str: string to checked.
+ * @ch: character.
+ *
+ * Return: pointer or NULL if not seen.
+ */
+char *_strchr(char *str, char ch)
+{
+	while (*str)
+	{
+		if (*str == ch)
+		{
+			return (str);
+		}
+		str++;
+	}
+	if (!ch)
+	{
+		return(str);
+	}
+	return (NULL);
 }
