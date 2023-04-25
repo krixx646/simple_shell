@@ -29,6 +29,7 @@ void _execute_command(char *command, char **argv);
 char *getenv(const char *name);
 size_t strlen(const char *str);
 int _strlen(char *str);
+char *my_strtok(char *str, const char *delim);
 char *_strchr(char *str, char ch);
 char *_strdup(char *string);
 int _strcmp(char *str1, char *str2);

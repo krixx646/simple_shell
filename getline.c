@@ -1,5 +1,12 @@
 #include "shell.h"
-
+/**
+ * _getline - Reads an entire line from a file descriptor
+ * @dbl: pointer to buffer to store the line
+ * @boff: pointer to size of the buffer
+ * @size: file descriptor
+ *
+ * Return: length of the line or -1 on failure
+ */
 
 size_t _getline(char **dbl, size_t *boff, int size)
 {
@@ -38,7 +45,7 @@ size_t _getline(char **dbl, size_t *boff, int size)
 
 		while (count < end_count)
 		{
-			if (lon >= *boff - 1) 
+			if (lon >= *boff - 1)
 			{
 				(*dbl)[lon] = '\0';
 				return (lon);
@@ -49,9 +56,8 @@ size_t _getline(char **dbl, size_t *boff, int size)
 			if ((*dbl)[lon - 1] == '\n')
 			{
 				(*dbl)[lon] = '\0';
-				return(lon);
+				return (lon);
 			}
 		}
 	}
 }
-
