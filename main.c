@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	char *input, *command;
 	int status = EXIT_SUCCESS;
 
-	setenv("TERM", "xterm-256color", 1);
+
 	prompt = "simple_shell$ ";
 	while (1)
 	{
@@ -39,8 +39,20 @@ int main(int argc, char **argv)
 			continue;
 		}
 
+		if (_strcmp(command, "setenv") == 0)
+		{
+			shell_setenv_builtin(argc, argv);
+			continue;
+		}
+		if (_strcmp(command, "unsetenv") == 0)
+		{
+			shell_setenv_builtin(argc, argv);
+			continue;
+		}
+
 		_execute_command(command, argv);
 		free(input);
+
 	}
 	return (0);
 }
