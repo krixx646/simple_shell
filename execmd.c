@@ -61,7 +61,6 @@ int _parse_input(char *input, char **argv)
 	}
 	return (cnt);
 }
-
 /**
  * _find_command - find users command.
  * @command: command to be found.
@@ -69,10 +68,10 @@ int _parse_input(char *input, char **argv)
  */
 char *_find_command(char *command)
 {
-	char *pat, *pat_cpy, *dir, *cmd_pat, *al_pat;
+	char *pat, *pat_cpy, *dir, *cmd_pat = NULL, *al_pat;
 
 	if (access(command, X_OK) == 0)
-		return (strdup(command));
+		return (_strdup(command));
 
 	pat = getenv("PATH");
 	pat_cpy = _strdup(pat);
@@ -90,6 +89,7 @@ char *_find_command(char *command)
 		_strcat(al_pat, command);
 		if (access(al_pat, X_OK) == 0)
 			cmd_pat = _strdup(al_pat);
+
 		free(al_pat);
 		dir = my_strtok(NULL, ":");
 	}
@@ -105,6 +105,7 @@ char *_find_command(char *command)
 		_strcat(al_pat, command);
 		if (access(al_pat, X_OK) == 0)
 			cmd_pat = _strdup(al_pat);
+
 		free(al_pat);
 	}
 	free(pat_cpy);
