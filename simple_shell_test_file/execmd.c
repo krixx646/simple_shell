@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * _print_prompt - prints prompt.
  * @prompt: shell prompt.
