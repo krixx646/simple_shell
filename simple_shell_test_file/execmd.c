@@ -13,6 +13,7 @@ void _print_prompt(char *prompt)
 /**
  * _read_input - reads user input.
  *
+ * Description: read user input.
  * Return: pointer.
  */
 char *_read_input()
@@ -32,7 +33,7 @@ char *_read_input()
 }
 
 /**
- * _parse_input:  tokensise input.
+ * _parse_input - tokensise input.
  * @input: user input.
  * @argv: array of string.
  *
