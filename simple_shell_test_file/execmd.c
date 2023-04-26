@@ -72,11 +72,14 @@ char *_find_command(char *command)
 	char *pat, *pat_cpy, *dir, *cmd_pat = NULL, *al_pat;
 
 	if (access(command, X_OK) == 0)
+	{
 		return (strdup(command));
+	}
 
 	pat = getenv("PATH");
 	pat_cpy = _strdup(pat);
 	dir = strtok(pat_cpy, ":");
+
 	while (dir != NULL && cmd_pat == NULL)
 	{
 		al_pat = malloc(_strlen(dir) + _strlen(command) + 2);
@@ -85,9 +88,9 @@ char *_find_command(char *command)
 			perror("Erorr: failed to allocate memoery");
 			exit(-1);
 		}
-		strcpy(al_pat, dir);
-		strcat(al_pat, "/");
-		strcat(al_pat, command);
+		_strcpy(al_pat, dir);
+		_strcat(al_pat, "/");
+		_strcat(al_pat, command);
 
 		if (access(al_pat, X_OK) == 0)
 			cmd_pat = _strdup(al_pat);
@@ -104,8 +107,8 @@ char *_find_command(char *command)
 			perror("Error: failed to allocate memory");
 			exit(-1);
 		}
-		strcpy(al_pat, "/bin/");
-		strcat(al_pat, command);
+		_strcpy(al_pat, "/bin/");
+		_strcat(al_pat, command);
 		if (access(al_pat, X_OK) == 0)
 			cmd_pat = _strdup(al_pat);
 
@@ -131,7 +134,7 @@ void _execute_command(char *command, char **argv)
 	cmd_pat = _find_command(command);
 	if (cmd_pat == NULL)
 	{
-		write(STDOUT_FILENO, "Command not found:\n", 20);
+		perror("Command not found:");
 		return;
 	}
 
