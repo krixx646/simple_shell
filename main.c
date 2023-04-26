@@ -8,10 +8,8 @@
  */
 int main(int argc, char **argv)
 {
-	char *prompt;
-	char *input, *command;
+	char *prompt, *input, *command;
 	int status = EXIT_SUCCESS;
-
 
 	prompt = "simple_shell$ ";
 	while (1)
@@ -19,17 +17,15 @@ int main(int argc, char **argv)
 		_print_prompt(prompt);
 		input = _read_input();
 		if (_strlen(input) == 0)
-		{
 			continue;
-		}
+
 		argc = _parse_input(input, argv);
 		command = argv[0];
 		if (_strcmp(command, "exit") == 0)
 		{
 			if (argc > 1)
-			{
 				status = atoi(argv[1]);
-			}
+
 			free(input);
 			exit(status);
 		}
@@ -38,7 +34,6 @@ int main(int argc, char **argv)
 			env_builtin(environ);
 			continue;
 		}
-
 		if (_strcmp(command, "setenv") == 0)
 		{
 			shell_setenv_builtin(argc, argv);
@@ -49,10 +44,8 @@ int main(int argc, char **argv)
 			shell_setenv_builtin(argc, argv);
 			continue;
 		}
-
 		_execute_command(command, argv);
 		free(input);
-
 	}
 	return (0);
-}
+	}

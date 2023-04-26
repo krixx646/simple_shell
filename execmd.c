@@ -65,7 +65,6 @@ int _parse_input(char *input, char **argv)
 /**
  * _find_command - find users command.
  * @command: command to be found.
- *
  * Return: a pointer.
  */
 char *_find_command(char *command)
@@ -73,35 +72,27 @@ char *_find_command(char *command)
 	char *pat, *pat_cpy, *dir, *cmd_pat, *al_pat;
 
 	if (access(command, X_OK) == 0)
-	{
 		return (strdup(command));
-	}
 
 	pat = getenv("PATH");
 	pat_cpy = _strdup(pat);
 	dir = my_strtok(pat_cpy, ":");
-	cmd_pat = NULL;
-
 	while (dir != NULL && cmd_pat == NULL)
 	{
 		al_pat = malloc(_strlen(dir) + _strlen(command) + 2);
-
 		if (al_pat == NULL)
 		{
 			perror("Error: failed to allocate memory");
 			exit(-1);
 		}
-		_strcpy (al_pat, dir);
+		_strcpy(al_pat, dir);
 		_strcat(al_pat, "/");
-		_strcat (al_pat, command);
-
+		_strcat(al_pat, command);
 		if (access(al_pat, X_OK) == 0)
 			cmd_pat = _strdup(al_pat);
-
 		free(al_pat);
 		dir = my_strtok(NULL, ":");
 	}
-
 	if (cmd_pat == NULL)
 	{
 		al_pat = malloc(_strlen("/bin/") + _strlen(command) + 2);
@@ -112,17 +103,13 @@ char *_find_command(char *command)
 		}
 		_strcpy(al_pat, "/bin/");
 		_strcat(al_pat, command);
-
 		if (access(al_pat, X_OK) == 0)
-		{
 			cmd_pat = _strdup(al_pat);
-		}
 		free(al_pat);
 	}
 	free(pat_cpy);
 	return (cmd_pat);
 }
-
 
 /**
  * _execute_command - execute a command.
