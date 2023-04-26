@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print 
+ * _putchar - writes the character to stdout
+ * @c: The character to print.
  *
+ * Description: write characters to stdout.
  * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately. 
  */
 int _putchar(char c)
 {
@@ -13,14 +13,17 @@ int _putchar(char c)
 }
 
 /**
- * _putstr: prints out string.
+ * _putstr - prints out string.
+ * @str: sting to be print.
  *
- * @return: returns output.
+ * Description: printing out strings
+ * Return: int.
  */
 int _putstr(char *str)
 {
 	int len;
 	int u;
+
 	len = _strlen(str);
 
 	for (u = 0; u < len; u++)

@@ -11,7 +11,7 @@
 size_t _getline(char **dbl, size_t *boff, int size)
 {
 	static char buff[BUFFER_SIZE];
-	static size_t count = 0, end_count = 0;
+	static size_t count, end_count;
 	size_t lon = 0;
 	ssize_t pld;
 
