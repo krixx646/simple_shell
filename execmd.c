@@ -88,15 +88,16 @@ char *_find_command(char *command)
 
 		if (al_pat == NULL)
 		{
-			write(STDERR_FILENO, "Error: failed to allocate memory.\n", 35);
+			perror("Error: failed to allocate memory");
 			exit(-1);
 		}
-		sprintf(al_pat, "%s/%s", dir, command);
+		_strcpy (al_pat, dir);
+		_strcat(al_pat, "/");
+		_strcat (al_pat, command);
 
 		if (access(al_pat, X_OK) == 0)
-		{
 			cmd_pat = _strdup(al_pat);
-		}
+
 		free(al_pat);
 		dir = my_strtok(NULL, ":");
 	}
@@ -106,10 +107,12 @@ char *_find_command(char *command)
 		al_pat = malloc(_strlen("/bin/") + _strlen(command) + 2);
 		if (al_pat == NULL)
 		{
-			write(STDERR_FILENO, "Error: failed to allocate memory.\n", 35);
+			perror("Error: failed to allocate memory.");
 			exit(-1);
 		}
-		sprintf(al_pat, "/bin/%s", command);
+		_strcpy(al_pat, "/bin/");
+		_strcat(al_pat, command);
+
 		if (access(al_pat, X_OK) == 0)
 		{
 			cmd_pat = _strdup(al_pat);
@@ -117,7 +120,6 @@ char *_find_command(char *command)
 		free(al_pat);
 	}
 	free(pat_cpy);
-
 	return (cmd_pat);
 }
 
@@ -138,7 +140,7 @@ void _execute_command(char *command, char **argv)
 	cmd_pat = _find_command(command);
 	if (cmd_pat == NULL)
 	{
-		write(STDERR_FILENO, "Command not found:\n", 20);
+		perror("Command not found:");
 		return;
 	}
 	cat = fork();
