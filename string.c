@@ -74,7 +74,7 @@ int _strlen(char *str)
  *
  * Return: pointer or NULL if not seen.
  */
-char *_strchr(char *str, char ch)
+const char *_strchr(const char *str, char ch)
 {
 	while (*str)
 	{

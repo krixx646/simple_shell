@@ -5,37 +5,39 @@
  * @str: the string to tokenize
  * @delim: the delimiter to use
  *
- * Return: a pointer to the next token, or NULL if there are no more tokens
+ * Return: a pointer to the next token or NULL if there are no more tokens
  */
 char *my_strtok(char *str, const char *delim)
 {
-	static char *I_love_A;
-	static char thunder_clap;
-	char *modafuka;
+	static char *thunder_clap;
+	char *moda;
 
-	if (str == NULL && I_love_A == NULL)
-		return (NULL);
-
-	if (str != NULL)
-		I_love_A = str;
-
-	modafuka = I_love_A;
-
-	while (*I_love_A != '\0')
+	if (str == NULL && thunder_clap == NULL)
 	{
-		if (*I_love_A == *delim)
-		{
-			*I_love_A = '\0';
-			I_love_A++;
-			return (modafuka);
-		}
-		I_love_A++;
+		return (NULL);
 	}
 
-	if (*modafuka != '\0')
-		return (modafuka);
+	if (str != NULL)
+	{
+		thunder_clap = str;
+	}
+	moda = thunder_clap;
 
-	thunder_clap = *delim;
-	I_love_A = NULL;
+	while (*thunder_clap != '\0')
+	{
+		if (_strchr(delim, *thunder_clap) != NULL)
+		{
+			*thunder_clap = '\0';
+			thunder_clap++;
+			return (moda);
+		}
+		thunder_clap++;
+	}
+
+	if (*moda != '\0')
+	{
+		return (moda);
+	}
+	thunder_clap = NULL;
 	return (NULL);
 }

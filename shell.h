@@ -30,12 +30,13 @@ char *getenv(const char *name);
 size_t strlen(const char *str);
 int _strlen(char *str);
 char *my_strtok(char *str, const char *delim);
-char *_strchr(char *str, char ch);
+const char *_strchr(const char *str, char ch);
 char *_strdup(char *string);
 int _strcmp(char *str1, char *str2);
 int env_builtin(char **env);
 int _putchar(char c);
 int _putstr(char *str);
 size_t _getline(char **dbl, size_t *boff, int size);
-
+int shell_unsetenv_builtin(int argc, char **argv);
+int shell_setenv_builtin(int argc, char **argv);
 #endif
