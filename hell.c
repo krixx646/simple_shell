@@ -16,7 +16,7 @@ int main(int arc, char **arv)
 	while (1 == 1)
 	{
 		user_prompt(STDIN_FILENO, buffer);
-		user_line = getline(stdin);
+		user_line = my_getline_func(stdin);
 		if (_strcmp(user_line, "\n", 1) == 0)
 		{
 			free(user_line);
@@ -36,7 +36,7 @@ int main(int arc, char **arv)
 		if (cmd_sta == -1)
 			exit(EXIT_SUCCESS);
 		arc = 0;
-		pat_vn = _getenv("PATH");
+		pat_vn = my_getenv_func("PATH");
 		al_pat = _execvp(toks[0], al_pat, pat_vn);
 		if (al_pat == NULL)
 			al_pat = toks[0];

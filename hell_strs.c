@@ -23,3 +23,25 @@ char *_strcat(char *dest, const char *src)
 	*container = '\0';
 	return (dest);
 }
+
+/**
+ * _strncmp - compares strings.
+ * @str1: strings
+ * @str2: strings
+ * @count: string lenght.
+ *
+ * Return: 1 0r -1 if not the same.
+ */
+int _strncmp(char *str1, char *str2, unsigned int count)
+{
+	unsigned int mot;
+
+	for (mot = 0; mot < count; mot++)
+	{
+		if (str1[mot] != str2[mot])
+		{
+			return (-1);
+		}
+	}
+	return (1);
+}

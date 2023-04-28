@@ -6,11 +6,11 @@
  *
  * Return: input.
  */
-char *my_new_getline(FILE *ops)
+char *my_getline_func(FILE *ops)
 {
 	char *str = NULL;
-	size_t cnt;
-	ssize hsh = 0;
+	ssize_t cnt;
+	size_t hsh = 0;
 
 	cnt = getline(&str, &hsh, ops);
 
@@ -20,3 +20,4 @@ char *my_new_getline(FILE *ops)
 		return (NULL);
 	}
 	return (str);
+}

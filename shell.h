@@ -66,6 +66,8 @@ int shell_env(void);
 int exit_shell(void);
 
 char *my_getenv_func(const char *tag);
-char *my_new_getline(FILE *ops);
+char *my_getline_func(FILE *ops);
 
+char **my_env_copyy(char **pop_py, unsigned int pop_pt);
+int _strncmp(char *str1, char *str2, unsigned int count);
 #endif
