@@ -11,7 +11,33 @@
 #include <sys/wait.h>
 
 #define BUFFER 1024
-#define PROMPT "$ "
+#define USER_PROMPT "$ "
+
+/**
+ * struct onions - linked list.
+ * @node: cont.
+ * @next: pointer.
+ *
+ * Description: linked list.
+ */
+typedef struct onions
+{
+	char *node;
+	struct onions *next;
+} onions;
+
+/**
+ * struct execmd_s - linked list.
+ * @node: const.
+ * @los: pointer.
+ *
+ * Description: linked list.
+ */
+typedef struct execmd_s
+{
+	char *node;
+	int (*los)(void);
+} execmd_s;
 
 /* String function */
 int _strlen(const char *s);
@@ -31,7 +57,11 @@ int _putchar(char c);
 char **parse_line(char *string);
 
 /* function free */
+<<<<<<< HEAD
 void free_up_all(char **tok, char *user_line, char *pat_vn, char i*al_pat, int arg);
+=======
+void free_up(char **tok, char *user_line, char *pat_vn, char *al_pat, int arg);
+>>>>>>> 9e52dcddd198f9658d478c8c59c09a2ad32af55f
 
 char *my_new_getline(FILE *ops);
 #endif

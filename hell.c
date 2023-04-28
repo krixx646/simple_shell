@@ -15,7 +15,7 @@ int main(int arc, char **arv)
 
 	while (1 == 1)
 	{
-		prompt(STDIN_FILENO, buffer);
+		user_prompt(STDIN_FILENO, buffer);
 		user_line = getline(stdin);
 		if (_strcmp(user_line, "\n", 1) == 0)
 		{
@@ -45,7 +45,7 @@ int main(int arc, char **arv)
 		pp_st = process_child(al_pat, toks);
 		if (pp_st == -1)
 			write(STDERR_FILENO, "Process failed\n", 15);
-		free_up_all(toks, pat_vn, user_line, al_pat, arc);
+		free_up(toks, pat_vn, user_line, al_pat, arc);
 	}
 	return (0);
 }

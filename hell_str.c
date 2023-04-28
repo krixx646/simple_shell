@@ -82,7 +82,7 @@ int _strcmp(char *str2, char *str1, unsigned int count)
 	{
 		if (str2[ta] != str1[ta])
 		{
-			return(1);
+			return (1);
 		}
 	}
 	return (0);
