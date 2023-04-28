@@ -10,7 +10,7 @@ int main(int arc, char **arv)
 {
 	char *user_line, *pat_vn, *al_pat, **toks;
 	struct stat buffer;
-	int cmd_sta, pp_st;
+	int cmd_sta; /* pp_st; */
 	(void)arv;
 
 	while (1 == 1)
@@ -42,9 +42,9 @@ int main(int arc, char **arv)
 			al_pat = toks[0];
 		else
 			arc = 1;
-		pp_st = process_child(al_pat, toks);
+		/* pp_st = process_child(al_pat, toks);
 		if (pp_st == -1)
-			write(STDERR_FILENO, "Process failed\n", 15);
+			write(STDERR_FILENO, "Process failed\n", 15); */
 		free_up(toks, pat_vn, user_line, al_pat, arc);
 	}
 	return (0);
