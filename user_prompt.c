@@ -15,9 +15,9 @@ void user_prompt(int stream, struct stat buffer)
 
 	if (S_ISCHR(buffer.st_mode))
 	{
-		for (j = 0; PROMPT[j] != '\0'; j++)
+		for (j = 0; USER_PROMPT[j] != '\0'; j++)
 		{
-			_putchar(PROMPT[j]);
+			_putchar(USER_PROMPT[j]);
 		}
 	}
 }

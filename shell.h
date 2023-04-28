@@ -11,7 +11,9 @@
 #include <sys/wait.h>
 
 #define BUFFER 1024
-#define USER_PROMPT "$ "
+#define USER_PROMPT "$$ "
+
+extern char **environ;
 
 /**
  * struct onions - linked list.
@@ -27,7 +29,7 @@ typedef struct onions
 } onions;
 
 /**
- * struct execmd_s - linked list.
+ * struct cookies - linked list.
  * @node: const.
  * @los: pointer.
  *
@@ -35,7 +37,7 @@ typedef struct onions
  */
 typedef struct execmd_s
 {
-	char *node;
+	char *alp;
 	int (*los)(void);
 } execmd_s;
 
@@ -48,7 +50,7 @@ int _strcmp(char *str2, char *str1, unsigned int count);
 
 
 /* prompt function prototype */
-void prompt(int stream, struct stat buffer);
+void user_prompt(int stream, struct stat buffer);
 
 /* print function prototype */
 int _putchar(char c);
@@ -59,4 +61,10 @@ char **parse_line(char *string);
 /* function free */
 void free_up(char **tok, char *user_line, char *pat_vn, char *al_pat, int arg);
 
+int execute_cmd(char **lim);
+int num_cmd(execmd_s cookies[]);
+int shell_env(void);
+int exit_shell(void);
+
+char *my_getenv_func(const char *tag);
 #endif
