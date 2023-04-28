@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * my_new_getline - get users line.
+ * my_getline_func - get users line.
  * @ops: input of user.
  *
  * Return: input.

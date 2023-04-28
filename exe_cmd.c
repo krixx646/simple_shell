@@ -58,7 +58,9 @@ int num_cmd(execmd_s cookies[])
 }
 
 /**
- * exit-shell - exit the shell.
+ * exit_shell - exit the shell.
+ *
+ * Description: exit shell.
  * Return: no return.
  */
 int exit_shell(void)
@@ -69,6 +71,7 @@ int exit_shell(void)
 /**
  * shell_env - print env.
  *
+ * Description: print env.
  * Return: no return.
  */
 int shell_env(void)

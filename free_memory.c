@@ -18,3 +18,21 @@ void free_up(char **tok, char *user_line, char *pat_vn, char *al_pat, int arc)
 	if (arc == 1)
 		free(al_pat);
 }
+
+/**
+ * _free - free.
+ * @arv: char argument.
+ * @arc: unsigned int argument.
+ *
+ * Retrun: no return.
+ */
+void _free(char **arv, unsigned int arc)
+{
+	unsigned int mee;
+
+	for (mee = 0; mee < arc; mee++)
+	{
+		free(arv[mee]);
+	}
+	free(arv);
+}

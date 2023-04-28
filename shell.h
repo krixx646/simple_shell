@@ -29,8 +29,8 @@ typedef struct onions
 } onions;
 
 /**
- * struct cookies - linked list.
- * @node: const.
+ * struct execmd_s - linked list.
+ * @alp: const.
  * @los: pointer.
  *
  * Description: linked list.
@@ -60,6 +60,8 @@ char **parse_line(char *string);
 
 /* function free */
 void free_up(char **tok, char *user_line, char *pat_vn, char *al_pat, int arg);
+void _free(char **arv, unsigned int arc);
+
 int execute_cmd(char **lim);
 int num_cmd(execmd_s cookies[]);
 int shell_env(void);

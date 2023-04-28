@@ -40,18 +40,16 @@ char *my_getenv_func(const char *tag)
 				return (NULL);
 			}
 			pat_vn = _strcpy(pat_vn, hsh);
-			free(pop_cp);
-			free(pop_t);
+			_free(pop_cp, pop_t);
 			return (pat_vn);
 		}
 		vim++;
 	}
 	return (NULL);
-	
 }
 
 /**
- * my_env_copy - copies env var.
+ * my_env_copyy - copies env var.
  * @pop_py: pointer.
  * @pop_pt: argument.
  *
