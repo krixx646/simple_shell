@@ -60,11 +60,12 @@ char **parse_line(char *string);
 
 /* function free */
 void free_up(char **tok, char *user_line, char *pat_vn, char *al_pat, int arg);
-
 int execute_cmd(char **lim);
 int num_cmd(execmd_s cookies[]);
 int shell_env(void);
 int exit_shell(void);
 
 char *my_getenv_func(const char *tag);
+char *my_new_getline(FILE *ops);
+
 #endif
