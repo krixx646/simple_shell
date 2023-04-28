@@ -31,6 +31,7 @@ int _putchar(char c);
 char **parse_line(char *string);
 
 /* function free */
-void free_up_all(char **tok, char *user_line, char *pat_vn, char *al_pat, int arg);
+void free_up_all(char **tok, char *user_line, char *pat_vn, char i*al_pat, int arg);
 
+char *my_new_getline(FILE *ops);
 #endif
