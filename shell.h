@@ -67,6 +67,8 @@ int num_cmd(execmd_s cookies[]);
 int shell_env(void);
 int exit_shell(void);
 
+char *search_fullpath(char *al_pat, char *pat_cmd, char *pat_vn);
+
 char *my_getenv_func(const char *tag);
 char *my_getline_func(FILE *ops);
 

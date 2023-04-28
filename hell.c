@@ -37,7 +37,7 @@ int main(int arc, char **arv)
 			exit(EXIT_SUCCESS);
 		arc = 0;
 		pat_vn = my_getenv_func("PATH");
-		al_pat = _execvp(toks[0], al_pat, pat_vn);
+		al_pat = search_fullpath(toks[0], al_pat, pat_vn);
 		if (al_pat == NULL)
 			al_pat = toks[0];
 		else
