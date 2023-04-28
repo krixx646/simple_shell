@@ -2,31 +2,33 @@
 
 /**
  * parse_line - parse strings.
- * @string: string to be parse.
+ * @data: string to be parse.
  *
  * Return: a pointer.
  */
-char **parse_line(char *string)
+char **parse_line(char *data)
 {
 	char *toks, **tooks;
-	unsigned int ptp;
-
-	tooks = malloc(sizeof(char) * BUFFER);
+	int p, boff = BUFFER;
 
 	if (tooks == NULL)
 	{
-		write(STDERR_FILENO, "Unable to parse\n", 16);
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 
-	toks = strtok(string, "\n\t\r ");
-
-	for (ptp = 0; toks != NULL; ptp++)
+	tooks = malloc(sizeof(char *) * boff);
+	if (!tooks)
 	{
-		tooks[ptp] = toks;
-		toks = strtok(NULL, "\n\t\r ");
+		perror("Error");
+		return (NULL);
 	}
-	tooks[ptp] = NULL;
+	toks = _strtok(data, "\n ");
+	for (p = 0; toks; p++)
+	{
+		tooks[p] = toks;
+		toks = _strtok(NULL, "\n ");
+	}
+	tooks[p] = NULL;
 
 	return (tooks);
 }

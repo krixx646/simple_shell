@@ -45,3 +45,69 @@ int _strncmp(char *str1, char *str2, unsigned int count)
 	}
 	return (1);
 }
+
+/**
+ * _itoa - change int to str.
+ * @b: variable to be coverted.
+ *
+ * Return: pointer.
+ */
+char *_itoa(int b)
+{
+	int count = 0, h = 0;
+	char *bm;
+
+	count = declen(b);
+	bm = malloc(count + 1);
+
+	if (!bm)
+		return (NULL);
+	*bm = '\0';
+	while (b / 10)
+	{
+		bm[h] = (b % 10) + '0';
+		b /= 10;
+		h++;
+	}
+	bm[h] = (b % 10) + '0';
+	arr(bm, count);
+	bm[h + 1] = '\0';
+	return (bm);
+}
+
+/**
+ * declen - calculate the lenght of int.
+ * @digit: variable.
+ *
+ * Return: lenght.
+ */
+int declen(int digit)
+{
+	int count;
+
+	for (count = 0; num != 0; count++)
+	{
+		digit /= 10;
+	}
+	return (count);
+}
+
+/**
+ * rev_arr - rev array.
+ * @ar: array.
+ * @size: lenght.
+ *
+ * Return: no return.
+ */
+void rev_arr(char *ar, int size)
+{
+	int h;
+	char cont;
+
+	while (h < (size / 2))
+	{
+		cont = ar[h];
+		ar[h] = ar[(size - 1) - 1];
+		ar[(size - 1) - h] = cont;
+	}
+}

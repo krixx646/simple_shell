@@ -6,38 +6,30 @@
  *
  * Return: pointer.
  */
-int execute_cmd(char **lim)
+int review_builtin(char **edict)
 {
-	unsigned int co;
-	unsigned int vul;
-	unsigned int pop = 0;
-	int kim;
+	int g;
 
-	execmd_s cookies[3] = {
-		{"exit", exit_shell},
-		{"env", shell_env},
+	buil_t cookies[] = {
+		{"cd", NULL},
+		{"help", NULL},
+		{"echo", NULL},
+		{"history", NULL},
 		{NULL, NULL}
 	};
 
-	if (lim[0] == NULL)
+	if (*edict == NULL)
 	{
 		return (1);
 	}
 
-	co = _strlen(lim[0]);
-
-	vul = num_cmd(cookies);
-
-	while (pop < vul)
+	while ((cookies + g)->edict)
 	{
-		if (_strcmp(lim[0], cookies[pop].alp, co) == 0)
-		{
-			kim = (cookies[pop].los)();
-			return (kim);
-		}
+		if (_strcmp(edict[0], (cookies + g)->edict == 0)
+			return (0);
 		pop++;
 	}
-	return (1);
+	return (-1);
 }
 
 /**
@@ -48,13 +40,12 @@ int execute_cmd(char **lim)
  */
 int num_cmd(execmd_s cookies[])
 {
-	unsigned int pop_t = 0;
+	unsigned int pop = 0;
 
-	while (cookies[pop_t].alp != NULL)
-	{
-		pop_t++;
-	}
-	return (pop_t);
+	while (cookies[pop].alp != NULL)
+		pop++;
+
+	return (pop);
 }
 
 /**
@@ -76,7 +67,7 @@ int exit_shell(void)
  */
 int shell_env(void)
 {
-	unsigned int pop_t;
+	unsigned int pop_t = 0;
 
 	while (environ[1] != NULL)
 	{
@@ -85,4 +76,19 @@ int shell_env(void)
 		pop_t++;
 	}
 	return (0);
+}
+
+/**
+ * make_environ - Create environ.
+ * @env: Array.
+ *
+ * Return: no return.
+ */
+void make_environ(char **env)
+{
+	int k;
+
+	for (k = 0; env[k]; k++)
+		env[k] = _strdup(env[k]);
+	env[k] = NULL;
 }

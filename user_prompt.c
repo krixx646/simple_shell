@@ -2,34 +2,32 @@
 
 /**
  * user_prompt - checks if the shell is running in an interactive mode.
- * @stream: an int parameter.
- * @buffer: struct variable.
  *
  * Return: no return.
  */
-void user_prompt(int stream, struct stat buffer)
+void user_prompt(void)
 {
-	int j;
-
-	fstat(stream, &buffer);
-
-	if (S_ISCHR(buffer.st_mode))
-	{
-		for (j = 0; USER_PROMPT[j] != '\0'; j++)
-		{
-			_putchar(USER_PROMPT[j]);
-		}
-	}
+	PROMPT("$ ");
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * show_err - print error.
+ * @data: user input.
+ * @count: lenght.
+ * @arv: char variable.
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: no return.
  */
-int _putchar(char c)
+void show_err(char *data, int count, char **arv)
 {
-	return (write(1, &c, 1));
+	char *is;
+
+	PROMPT(arv[0]);
+	PROMPT(": ");
+	is = _itoa(count);
+	PROMPT(is);
+	free(is);
+	PROMPT(": ");
+	PROMPT(data);
+	PROMPT(": not found\n");
 }

@@ -17,7 +17,7 @@ char *my_getenv_func(const char *tag)
 	pop_cp = NULL;
 	pop_cp = my_env_copyy(pop_cp, pop_t);
 
-	t_top = _strlen((char *) tag);
+	t_top = _strlen((char *)tag);
 
 	while (pop_cp[vim] != NULL)
 	{
@@ -29,14 +29,14 @@ char *my_getenv_func(const char *tag)
 			hsh = strtok(NULL, "\n ");
 			if (hsh == NULL)
 			{
-				perror("Error");
+				errors(4);
 				exit(EXIT_FAILURE);
 			}
 			pat_cnt = _strlen(hsh);
 			pat_vn = malloc(sizeof(char) * pat_cnt + 1);
 			if (pat_vn == NULL)
 			{
-				perror("Error");
+				errors(3);
 				return (NULL);
 			}
 			pat_vn = _strcpy(pat_vn, hsh);
@@ -63,7 +63,7 @@ char **my_env_copyy(char **pop_py, unsigned int pop_pt)
 	pop_py = malloc(sizeof(char **) * (pop_pt));
 	if (pop_py == NULL)
 	{
-		perror("Erorro");
+		errors(3);
 		return (NULL);
 	}
 
@@ -76,7 +76,7 @@ char **my_env_copyy(char **pop_py, unsigned int pop_pt)
 		pop_py[hps] = malloc(sizeof(char) * cut + 1);
 		if (pop_py[hps] == NULL)
 		{
-			perror("Error");
+			errors(3);
 			return (NULL);
 		}
 		_strcpy(pop_py[hps], environ[hps]);

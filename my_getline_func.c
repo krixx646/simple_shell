@@ -9,15 +9,15 @@
 char *my_getline_func(FILE *ops)
 {
 	char *str = NULL;
-	ssize_t cnt;
+	ssize_t read;
 	size_t hsh = 0;
 
-	cnt = getline(&str, &hsh, ops);
+	read = getline(&str, &hsh, ops);
 
-	if (cnt == -1)
+	if (read == -1)
 	{
 		free(str);
-		return (NULL);
+		return (EXIT_SUCCESS);
 	}
 	return (str);
 }
