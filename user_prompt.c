@@ -2,14 +2,18 @@
 
 /**
  * user_prompt - checks if the shell is running in an interactive mode.
+ * @stream: an int parameter.
+ * @buffer: struct variable.
+ *
+ * Return: no return.
  */
-void prompt(int stream, struct stat buffer)
+void user_prompt(int stream, struct stat buffer)
 {
 	int j;
 
 	fstat(stream, &buffer);
 
-	if(S_ISCHR(buffer.st_mode))
+	if (S_ISCHR(buffer.st_mode))
 	{
 		for (j = 0; PROMPT[j] != '\0'; j++)
 		{
