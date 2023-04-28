@@ -63,22 +63,27 @@ char *_strchr(char *str, char ch)
 
 /**
  * _strcmp - Compares strings.
- * @str1: first string.
- * @str2: second string.
+ * @str2: first string.
+ * @str1: second string.
+ * @count: lenght.
  *
  * Return: the compare str.
  */
-int _strcmp(char *str1, char *str2)
+int _strcmp(char *str2, char *str1, unsigned int count)
 {
-	while (*str1 && *str2 && *str1 == *str2)
-	{
-		str1++;
-		str2++;
-	}
+	unsigned int cunt;
+	unsigned int ta;
 
-	if (*str1 != *str2)
+	cunt = _strlen(str1);
+	if (cunt != count)
+		return (-1);
+
+	for (ta = 0; str2[ta] != '\0' && str1[ta] != '\0'; ta++)
 	{
-		return (*str1 - *str2);
+		if (str2[ta] != str1[ta])
+		{
+			return(1);
+		}
 	}
 	return (0);
 }
