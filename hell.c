@@ -16,10 +16,10 @@ int main(int arc, char **arv)
 		read_input(arv[1], arv);
 	signal(SIGINT, signal_to_handle);
 
-	while(true)
+	while (true)
 	{
 		count++;
-		if(isatty(STDIN_FILENO))
+		if (isatty(STDIN_FILENO))
 			prompt();
 		data = _getline();
 		if (data[0] == '\0')
@@ -44,5 +44,5 @@ int main(int arc, char **arv)
 		}
 		free_up(edict, data);
 	}
-	return(grade);
+	return (grade);
 }

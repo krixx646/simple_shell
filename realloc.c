@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _realloc -  Reallocates A Memory Block.
+ * _realloc -  memory allocation.
  * @cat: pointer.
  * @space1: variable.
  * @space: variable.
@@ -54,7 +54,7 @@ char *_memcpy(char *location, char *origin, unsigned int jik)
 	return (location);
 }
 
-/*
+/**
  * add_arr - function type.
  * @bin: pointer.
  * @lat: int variable.

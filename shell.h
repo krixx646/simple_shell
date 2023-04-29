@@ -11,73 +11,8 @@
 #include <sys/wait.h>
 
 #define BUFFER 1024
-#define USER_PROMPT "seyi$ "
+#define PROMPT (write(STDOUT_FILENO, l, strlen(l)))
 
-
-#define ERR_MALLOC "Unable to malloc space\n"
-#define ERR_FORK "Unable to fork and create child process\n"
-#define ERR_PATH "No such file or directory\n"
 extern char **environ;
 
-/**
- * struct onions - linked list.
- * @node: cont.
- * @next: pointer.
- *
- * Description: linked list.
- */
-typedef struct onions
-{
-	char *node;
-	struct onions *next;
-} onions;
-
-/**
- * struct execmd_s - linked list.
- * @alp: const.
- * @los: pointer.
- *
- * Description: linked list.
- */
-typedef struct execmd_s
-{
-	char *alp;
-	int (*los)(void);
-} execmd_s;
-
-/* String function */
-int _strlen(const char *s);
-char *_strcpy(char *dest, const char *src);
-char *_strcat(char *dest, const char *src);
-char *_strchr(char *str, char ch);
-int _strcmp(char *str2, char *str1, unsigned int count);
-
-
-/* prompt function prototype */
-void user_prompt(int stream, struct stat buffer);
-
-/* print function prototype */
-int _putchar(char c);
-
-/* function prototype */
-char **parse_line(char *string);
-
-/* function free */
-void free_up(char **tok, char *user_line, char *pat_vn, char *al_pat, int arg);
-void _free(char **arv, unsigned int arc);
-
-int execute_cmd(char **lim);
-int num_cmd(execmd_s cookies[]);
-int shell_env(void);
-int exit_shell(void);
-void my_puts(char *c);
-char *search_fullpath(char *al_pat, char *pat_cmd, char *pat_vn);
-void errors(int error);
-char *my_getenv_func(const char *tag);
-char *my_getline_func(FILE *ops);
-
-int pid(char *al_pat, char **toks);
-
-char **my_env_copyy(char **pop_py, unsigned int pop_pt);
-int _strncmp(char *str1, char *str2, unsigned int count);
 #endif

@@ -2,7 +2,7 @@
 
 /**
  * print_int - print int.
- * @mp: variable.
+ * @u: variable.
  *
  * Return: no return.
  */
@@ -16,9 +16,10 @@ void print_int(unsigned int u)
 }
 
 /**
- * print_dec - print int.
- * @u: variable.
+ * print_dec - print integer.
+ * @u: variable int.
  *
+ * Description: print integer.
  * Return: no return.
  */
 void print_dec(int u)
@@ -32,6 +33,6 @@ void print_dec(int u)
 	}
 	if ((j / 10) > '0')
 	{
-		print_dec(j/ 10);
+		print_dec(j / 10);
 	}
 	_putchar(j % 10 + '0');

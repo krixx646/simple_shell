@@ -5,7 +5,7 @@
  * @data: user data.
  *
  * Description: data
- * @Return: 0 or -1.
+ * Return: 0 or -1 if fail.
  */
 int record(char *data)
 {
@@ -35,7 +35,7 @@ int record(char *data)
  * @b: last cmd.
  *
  * Description: print record.
- * @Return: 0 or -1.
+ * Return: 0 or if fail.
  */
 int record_print(char *m, int b)
 {
