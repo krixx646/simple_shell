@@ -87,3 +87,19 @@ int _strcmp(char *str2, char *str1, unsigned int count)
 	}
 	return (0);
 }
+
+/**
+ * _isalpha - search for alpha.
+ * @i: alphabeth.
+ *
+ * Return: int.
+ */
+int _isalpha(int i)
+{
+	if (((i >= 97) && (i <= 122)) || ((i >= 65) && (i <= 90)))
+	{
+		return (1);
+	}
+	else
+		return (0);
+}
